@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLink, Github, Zap, Box, Wrench, Gamepad2, Smartphone } from "lucide-react";
+import { ExternalLink, Github, Zap, Box, Wrench, Gamepad2, Smartphone, User } from "lucide-react";
 import type { Project, ProjectCategory, ProjectStatus } from "@/data/projects";
 
 const categoryMeta: Record<ProjectCategory, { label: string; icon: React.ReactNode; color: string }> = {
@@ -38,40 +38,54 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(ellipse_at_top_left,rgba(16,185,129,0.06),transparent_60%)]" />
 
       <div className="relative p-6 flex flex-col flex-1 gap-4">
-        <div className="flex items-start justify-between gap-4">
-          <div>
-            <div className="flex flex-wrap items-center gap-2 mb-2">
-              <span className={`inline-flex items-center gap-1 px-2 py-0.5 text-xs font-medium border rounded-full ${cat.color}`}>
-                {cat.icon}
-                {cat.label}
-              </span>
-              <span className="inline-flex items-center gap-1.5 text-xs text-zinc-500">
-                <span className={`w-1.5 h-1.5 rounded-full ${status.dot}`} />
-                {status.label}
-              </span>
-            </div>
-            <h3 className="text-xl font-bold text-white">{project.title}</h3>
-            <p className="mt-1 text-sm text-zinc-400">{project.tagline}</p>
+        <div>
+          <div className="flex flex-wrap items-center gap-2 mb-2">
+            <span className={`inline-flex items-center gap-1 px-2 py-0.5 text-xs font-medium border rounded-full ${cat.color}`}>
+              {cat.icon}
+              {cat.label}
+            </span>
+            <span className="inline-flex items-center gap-1.5 text-xs text-zinc-500">
+              <span className={`w-1.5 h-1.5 rounded-full ${status.dot}`} />
+              {status.label}
+            </span>
           </div>
+          <h3 className="text-xl font-bold text-white">{project.title}</h3>
+          <p className="mt-1 text-sm text-zinc-400">{project.tagline}</p>
+          <p className="mt-2 inline-flex items-center gap-1.5 text-xs text-zinc-600">
+            <User size={11} />
+            {project.role}
+          </p>
         </div>
 
         <div className="space-y-3">
           <div className="p-3 bg-zinc-800/50 rounded-lg border border-zinc-700/50">
-            <p className="text-xs font-semibold text-zinc-500 uppercase tracking-wider mb-1">Problema</p>
+            <p className="text-xs font-semibold text-zinc-500 uppercase tracking-wider mb-1">El Desafío</p>
             <p className="text-sm text-zinc-300 leading-relaxed">{project.problem}</p>
           </div>
           <div className="p-3 bg-emerald-500/5 rounded-lg border border-emerald-500/10">
-            <p className="text-xs font-semibold text-emerald-500 uppercase tracking-wider mb-1">Solución</p>
+            <p className="text-xs font-semibold text-emerald-500 uppercase tracking-wider mb-1">La Solución</p>
             <p className="text-sm text-zinc-300 leading-relaxed">{project.solution}</p>
           </div>
+        </div>
+
+        <div>
+          <p className="text-xs font-semibold text-zinc-500 uppercase tracking-wider mb-2">Stack & Arquitectura</p>
+          <ul className="space-y-1.5">
+            {project.architecturePoints.map((point, i) => (
+              <li key={i} className="flex items-start gap-2 text-sm text-zinc-400">
+                <span className="mt-1.5 w-1 h-1 rounded-full bg-emerald-400 shrink-0" />
+                {point}
+              </li>
+            ))}
+          </ul>
         </div>
 
         <div>
           <p className="text-xs font-semibold text-zinc-500 uppercase tracking-wider mb-2">Highlights</p>
           <ul className="space-y-1">
             {project.highlights.map((h, i) => (
-              <li key={i} className="flex items-start gap-2 text-sm text-zinc-400">
-                <span className="mt-1.5 w-1 h-1 rounded-full bg-emerald-400 shrink-0" />
+              <li key={i} className="flex items-start gap-2 text-sm text-zinc-500">
+                <span className="mt-1.5 w-1 h-1 rounded-full bg-zinc-600 shrink-0" />
                 {h}
               </li>
             ))}

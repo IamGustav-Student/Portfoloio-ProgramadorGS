@@ -4,123 +4,138 @@ export type ProjectCategory = "saas" | "local" | "engineering" | "gamedev" | "pw
 export interface Project {
   id: string;
   title: string;
+  role: string;
   tagline: string;
   problem: string;
   solution: string;
   category: ProjectCategory;
   status: ProjectStatus;
   stack: string[];
-  features: string[];
+  architecturePoints: string[];
   highlights: string[];
   link?: string;
   repo?: string;
-  image?: string;
 }
 
 export const projects: Project[] = [
   {
     id: "gymvo",
     title: "Gymvo",
-    tagline: "SaaS multitenant para gestión de gimnasios",
-    problem: "Los gimnasios pierden control total de sus socios: pagos vencidos, asistencia desorganizada y cero visibilidad del negocio.",
-    solution: "Gymvo es una plataforma SaaS con arquitectura multitenant que permite a múltiples gimnasios operar de forma aislada sobre una única infraestructura, con Clean Architecture en .NET.",
+    role: "Arquitecto de Software y Desarrollador Full Stack",
+    tagline: "SaaS de gestión fitness multitenant",
+    problem:
+      "Diseñar una arquitectura que permitiera a cientos de gimnasios operar de forma independiente sobre la misma infraestructura, garantizando la seguridad de los datos y la escalabilidad del sistema.",
+    solution:
+      "Plataforma robusta diseñada para centralizar la administración de gimnasios —desde el control de membresías hasta el seguimiento de rutinas— bajo un modelo de suscripción escalable.",
     category: "saas",
     status: "wip",
-    stack: ["ASP.NET Core", "C#", "Clean Architecture", "PostgreSQL", "Docker", "Next.js", "Tailwind CSS"],
-    features: [
-      "Multitenancy por schema de base de datos",
-      "Gestión de socios y membresías",
-      "Control de pagos y vencimientos",
-      "Dashboard analítico por gimnasio",
-      "API REST con JWT Auth",
+    stack: ["ASP.NET Core", "C#", "Clean Architecture", "PostgreSQL", "Entity Framework Core", "Docker", "Next.js", "Tailwind CSS"],
+    architecturePoints: [
+      "Multitenancy: aislamiento de datos por tenant para privacidad y seguridad garantizada",
+      "Clean Architecture: separación estricta Domain / Application / Infrastructure / WebAPI",
+      "PostgreSQL + EF Core: consultas optimizadas para asistencia y pagos",
+      "Docker: entornos de desarrollo y producción idénticos mediante contenedores",
     ],
     highlights: [
-      "Arquitectura limpia con separación Domain / Application / Infrastructure",
-      "Cada tenant opera en un schema PostgreSQL aislado",
-      "Diseño orientado a escalar como producto comercial",
+      "Arquitectura pensada para escalar a cientos de gimnasios sobre una sola infraestructura",
+      "Separación de responsabilidades que facilita testing unitario y mantenimiento",
+      "Modelo de suscripción SaaS listo para monetización",
     ],
   },
   {
     id: "zendev",
     title: "ZENDEV",
-    tagline: "Agencia de digitalización para PyMEs locales",
-    problem: "Negocios locales de Colón, Bs. As. operan sin presencia digital ni herramientas modernas, perdiendo clientes ante competidores más visibles.",
-    solution: "ZENDEV ofrece desarrollo web, e-commerce y automatizaciones a medida para PyMEs de la región, reduciendo la brecha digital con soluciones accesibles.",
+    role: "Co-Fundador y Lead Developer",
+    tagline: "Digitalización de comercio local en Colón, Bs. As.",
+    problem:
+      "Muchos comercios locales carecen de herramientas digitales accesibles. El objetivo era crear una plataforma fácil de usar para el comerciante pero técnicamente potente en el backend.",
+    solution:
+      "Iniciativa tecnológica nacida en Colón, Bs. As., orientada a reducir la brecha digital de los negocios locales mediante la creación de una presencia web sólida y funcional.",
     category: "local",
     status: "production",
-    stack: ["Next.js", "Node.js", "Tailwind CSS", "PostgreSQL", "Vercel"],
-    features: [
-      "Sitios web y landing pages profesionales",
-      "Tiendas online para comercios locales",
-      "Automatización de procesos manuales",
-      "Integración con WhatsApp Business",
+    stack: ["Node.js", "Next.js", "Tailwind CSS", "PostgreSQL", "Vercel"],
+    architecturePoints: [
+      "Backend eficiente con Node.js para comunicación fluida entre servidor y clientes",
+      "Frontend moderno con interfaces reactivas para gestión de inventario en tiempo real",
+      "Bases de datos relacionales para integridad de catálogos de productos por cliente",
+      "Estrategia de despliegue centrada en usabilidad para comerciantes sin experiencia técnica",
     ],
     highlights: [
-      "Impacto directo en la economía local de Colón",
-      "Soluciones entregadas en ciclos cortos",
-      "Foco en ROI medible para el cliente",
+      "Impacto directo en la economía local de Colón, Buenos Aires",
+      "Negocios sin experiencia técnica pueden autogestionarse desde el primer día",
+      "Ciclos de entrega cortos con foco en ROI medible para el cliente",
     ],
   },
   {
     id: "banco-pruebas",
-    title: "Software Banco de Pruebas",
-    tagline: "Adquisición de datos y reverse engineering para equipos industriales",
-    problem: "Los bancos de prueba industriales generan datos en formatos propietarios sin API pública, imposibilitando el análisis moderno.",
-    solution: "Desarrollo de software de adquisición de datos con reverse engineering del protocolo serial, parseando telemetría en tiempo real hacia un dashboard de análisis.",
+    title: "Banco de Pruebas de Amortiguadores",
+    role: "Desarrollador de Software Industrial",
+    tagline: "Ingeniería de software aplicada a hardware industrial",
+    problem:
+      "Los bancos de prueba industriales generan datos en formatos propietarios sin API pública ni documentación oficial, imposibilitando el análisis y visualización modernos.",
+    solution:
+      "Software de adquisición de datos con reverse engineering del protocolo serial, procesamiento de señales y visualización en tiempo real para testeo industrial de amortiguadores.",
     category: "engineering",
     status: "wip",
-    stack: ["Python", "C#", "Serial Protocol", "WPF", "SQLite"],
-    features: [
-      "Reverse engineering de protocolo propietario",
-      "Adquisición de datos en tiempo real vía serial",
-      "Visualización de curvas de torque / potencia",
-      "Exportación a CSV y formatos de análisis",
+    stack: ["Python", "C#", "WPF", "Serial Protocol", "SQLite"],
+    architecturePoints: [
+      "Reverse engineering del protocolo propietario a partir de tráfico serial capturado",
+      "Lógica de procesamiento de señales para datos de fuerza, desplazamiento y velocidad",
+      "Visualización de curvas en tiempo real: torque, amortiguación y ciclos de compresión",
+      "Sin documentación oficial: toda la lógica inferida del análisis de tráfico",
     ],
     highlights: [
-      "Intersección entre software e ingeniería mecánica",
-      "Sin documentación oficial: todo inferido de tráfico capturado",
+      "Intersección única entre software e ingeniería mecánica industrial",
       "Permite modernizar equipos legacy sin reemplazarlos",
+      "Exportación de resultados para análisis posterior en laboratorio",
     ],
   },
   {
     id: "chatbot-pwa",
-    title: "Chatbot PWA",
-    tagline: "Asistente conversacional instalable como app nativa",
-    problem: "Los chatbots web tradicionales no funcionan offline ni se integran naturalmente en el flujo de trabajo del usuario.",
-    solution: "PWA con Service Worker que permite usar el chatbot sin conexión, con notificaciones push y experiencia de app nativa en cualquier dispositivo.",
+    title: "Chatbot PWA – Guía Comercial",
+    role: "Desarrollador Full Stack",
+    tagline: "Asistente conversacional offline para comercios locales",
+    problem:
+      "Los comerciantes locales necesitan una forma de ser descubiertos digitalmente sin depender de conexión constante por parte del usuario.",
+    solution:
+      "Aplicación web progresiva que funciona offline, con un motor de búsqueda lógica para recomendar negocios locales mediante una interfaz de chat intuitiva e instalable como app nativa.",
     category: "pwa",
     status: "prototype",
     stack: ["Next.js", "React", "Tailwind CSS", "Service Workers", "Web Push API", "Node.js"],
-    features: [
-      "Instalable en Android, iOS y Desktop",
-      "Modo offline con caché de conversaciones",
-      "Notificaciones push",
-      "Sincronización en background",
+    architecturePoints: [
+      "Service Worker con estrategia de cache para funcionamiento 100% offline",
+      "Motor de búsqueda lógica para recomendación contextual de negocios",
+      "Interfaz de chat diseñada para máxima accesibilidad y UX intuitiva",
+      "Instalable en Android, iOS y Desktop como PWA nativa",
     ],
     highlights: [
-      "Score Lighthouse 95+ en todas las categorías",
-      "Primer experimento con PWA avanzadas",
-      "Base para futuros productos de asistencia virtual",
+      "Funciona sin conexión: experiencia completa con datos en cache",
+      "Score Lighthouse 95+ en performance, accesibilidad y PWA",
+      "Base para futuros productos de asistencia comercial local",
     ],
   },
   {
     id: "godot-prototypes",
-    title: "Prototipos en Godot",
-    tagline: "Experimentación en game dev con Godot + C#",
-    problem: "Explorar mecánicas de juego requiere iterar rápido sin infraestructura compleja.",
-    solution: "Prototipos funcionales en Godot Engine usando C# para la lógica de gameplay, enfocados en aprender los fundamentos del desarrollo de videojuegos indie.",
+    title: "Game Dev – Godot + C#",
+    role: "Desarrollador Independiente",
+    tagline: "Mecánicas de juego, físicas y máquinas de estado en Godot Engine",
+    problem:
+      "Explorar el desarrollo de videojuegos requiere iterar rápido sobre mecánicas y sistemas sin infraestructura compleja.",
+    solution:
+      "Prototipos funcionales en Godot Engine aprovechando C# para lógica de gameplay de alto rendimiento, con foco en arquitectura de sistemas de juego robustos.",
     category: "gamedev",
     status: "prototype",
     stack: ["Godot Engine", "C#", "GDScript"],
-    features: [
-      "Prototipo de plataformer 2D",
-      "Sistema de física personalizado",
-      "State machines para IA de enemigos",
+    architecturePoints: [
+      "Mecánicas de movimiento con física personalizada y control de personaje",
+      "Sistemas de combate con detección de colisiones y hitboxes dinámicas",
+      "Máquinas de estado (State Machine) para IA de enemigos y comportamientos complejos",
+      "Reutilización del ecosistema .NET y C# en contexto de game dev",
     ],
     highlights: [
-      "Reutilización de conocimientos de C# del ecosistema .NET",
-      "Foco en arquitectura de sistemas de juego",
-      "Base para proyectos indie a futuro",
+      "Transferencia directa de conocimientos de C# del ecosistema .NET",
+      "Foco en arquitectura de sistemas antes que en assets visuales",
+      "Base técnica para proyectos indie a futuro",
     ],
   },
 ];
