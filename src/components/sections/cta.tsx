@@ -17,7 +17,7 @@ const WhatsAppIcon = () => (
 const contactLinks = [
   {
     label: "LinkedIn",
-    href: "https://linkedin.com/in/gustavo-olivera",
+    href: "https://www.linkedin.com/in/gustavoolivera/",
     icon: <Linkedin className="w-5 h-5" />,
     color: "border-blue-500/30 hover:border-blue-400 text-blue-400 hover:bg-blue-400/5",
   },

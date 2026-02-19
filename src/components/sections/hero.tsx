@@ -59,7 +59,7 @@ export function Hero() {
 
           <div className="mt-10 flex items-center gap-2">
             <a
-              href="https://github.com/programadorgs"
+              href="https://github.com/IamGustav-Student"
               target="_blank"
               rel="noopener noreferrer"
               className="w-11 h-11 flex items-center justify-center text-zinc-500 hover:text-emerald-400 transition-colors"
@@ -67,7 +67,7 @@ export function Hero() {
               <Github size={22} />
             </a>
             <a
-              href="https://linkedin.com/in/gustavo-olivera"
+              href="https://www.linkedin.com/in/gustavoolivera/"
               target="_blank"
               rel="noopener noreferrer"
               className="w-11 h-11 flex items-center justify-center text-zinc-500 hover:text-emerald-400 transition-colors"
@@ -75,7 +75,7 @@ export function Hero() {
               <Linkedin size={22} />
             </a>
             <a
-              href="mailto:gsolivera.dev@gmail.com"
+              href="mailto:iamgustav.olivera@gmail.com"
               className="w-11 h-11 flex items-center justify-center text-zinc-500 hover:text-emerald-400 transition-colors"
             >
               <Mail size={22} />
