@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { BookOpen, MapPin, Rocket, Quote } from "lucide-react";
+import { BookOpen, MapPin, Quote } from "lucide-react";
+import Image from "next/image";
 
 const strengths = [
   {
@@ -47,6 +48,23 @@ export function AboutSection() {
             transition={{ duration: 0.5 }}
             className="space-y-5"
           >
+            <div className="flex items-center gap-5">
+              <div className="relative w-20 h-20 sm:w-24 sm:h-24 shrink-0">
+                <Image
+                  src="/avatar.png"
+                  alt="Gustavo Sebastian Olivera"
+                  fill
+                  className="rounded-2xl object-cover object-top border-2 border-zinc-700"
+                  sizes="96px"
+                  priority
+                />
+              </div>
+              <div>
+                <p className="text-white font-bold text-lg leading-tight">Gustavo Sebastian Olivera</p>
+                <p className="text-emerald-400 text-sm mt-0.5">Full Stack Developer</p>
+                <p className="text-zinc-500 text-xs mt-1">ISFDyT N°124 · Colón, Bs. As.</p>
+              </div>
+            </div>
             <p className="text-zinc-400 leading-relaxed">
               Soy <span className="text-white font-semibold">Gustavo Sebastian Olivera</span>, estudiante de
               Computación/IT en el{" "}
