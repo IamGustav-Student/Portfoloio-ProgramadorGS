@@ -17,12 +17,12 @@ export function Footer() {
             </p>
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-1">
             <a
               href="https://github.com/programadorgs"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-zinc-500 hover:text-emerald-400 transition-colors"
+              className="w-11 h-11 flex items-center justify-center text-zinc-500 hover:text-emerald-400 transition-colors"
               aria-label="GitHub"
             >
               <Github size={20} />
@@ -31,14 +31,14 @@ export function Footer() {
               href="https://linkedin.com/in/gustavo-olivera"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-zinc-500 hover:text-emerald-400 transition-colors"
+              className="w-11 h-11 flex items-center justify-center text-zinc-500 hover:text-emerald-400 transition-colors"
               aria-label="LinkedIn"
             >
               <Linkedin size={20} />
             </a>
             <a
               href="mailto:gsolivera.dev@gmail.com"
-              className="text-zinc-500 hover:text-emerald-400 transition-colors"
+              className="w-11 h-11 flex items-center justify-center text-zinc-500 hover:text-emerald-400 transition-colors"
               aria-label="Email"
             >
               <Mail size={20} />

@@ -57,12 +57,12 @@ export function Hero() {
             </a>
           </div>
 
-          <div className="mt-10 flex items-center gap-5">
+          <div className="mt-10 flex items-center gap-2">
             <a
               href="https://github.com/programadorgs"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-zinc-500 hover:text-emerald-400 transition-colors"
+              className="w-11 h-11 flex items-center justify-center text-zinc-500 hover:text-emerald-400 transition-colors"
             >
               <Github size={22} />
             </a>
@@ -70,13 +70,13 @@ export function Hero() {
               href="https://linkedin.com/in/gustavo-olivera"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-zinc-500 hover:text-emerald-400 transition-colors"
+              className="w-11 h-11 flex items-center justify-center text-zinc-500 hover:text-emerald-400 transition-colors"
             >
               <Linkedin size={22} />
             </a>
             <a
               href="mailto:gsolivera.dev@gmail.com"
-              className="text-zinc-500 hover:text-emerald-400 transition-colors"
+              className="w-11 h-11 flex items-center justify-center text-zinc-500 hover:text-emerald-400 transition-colors"
             >
               <Mail size={22} />
             </a>

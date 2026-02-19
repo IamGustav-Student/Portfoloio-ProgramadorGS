@@ -90,13 +90,13 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
         </div>
 
         {(project.link || project.repo) && (
-          <div className="flex gap-3 pt-2 border-t border-zinc-800">
+          <div className="flex gap-1 pt-2 border-t border-zinc-800">
             {project.link && (
               <a
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 text-sm text-emerald-400 hover:text-emerald-300 transition-colors"
+                className="flex items-center gap-1.5 px-3 py-2 text-sm text-emerald-400 hover:text-emerald-300 transition-colors"
               >
                 <ExternalLink size={14} /> Demo
               </a>
@@ -106,7 +106,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
                 href={project.repo}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 text-sm text-zinc-400 hover:text-zinc-200 transition-colors"
+                className="flex items-center gap-1.5 px-3 py-2 text-sm text-zinc-400 hover:text-zinc-200 transition-colors"
               >
                 <Github size={14} /> Repositorio
               </a>

@@ -67,7 +67,7 @@ export function Navbar() {
               key={link.href}
               href={link.href}
               onClick={() => setOpen(false)}
-              className="block py-2 text-sm text-zinc-400 hover:text-white transition-colors"
+              className="block py-3 text-sm text-zinc-400 hover:text-white transition-colors"
             >
               {link.label}
             </Link>
