@@ -11,6 +11,7 @@ const navLinks = [
   { href: "/#stack", label: "Stack" },
   { href: "/#blog", label: "Blog" },
   { href: "/#about", label: "Sobre mí" },
+  { href: "/#contact", label: "Contacto" },
 ];
 
 export function Navbar() {
@@ -41,12 +42,6 @@ export function Navbar() {
           <div className="ml-2">
             <ThemeToggle />
           </div>
-          <a
-            href="mailto:gsolivera.dev@gmail.com"
-            className="ml-3 px-4 py-1.5 text-sm font-medium bg-emerald-500 hover:bg-emerald-400 text-zinc-950 rounded-lg transition-colors"
-          >
-            Contacto
-          </a>
         </nav>
 
         <div className="flex md:hidden items-center gap-2">
@@ -72,12 +67,6 @@ export function Navbar() {
               {link.label}
             </Link>
           ))}
-          <a
-            href="mailto:gsolivera.dev@gmail.com"
-            className="mt-2 block text-center px-4 py-2 text-sm font-medium bg-emerald-500 hover:bg-emerald-400 text-zinc-950 rounded-lg transition-colors"
-          >
-            Contacto
-          </a>
         </div>
       )}
     </header>
