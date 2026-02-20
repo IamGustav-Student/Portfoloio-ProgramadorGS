@@ -14,88 +14,90 @@ export function Hero() {
       </div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-24">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-        >
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 mb-6 text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 rounded-full">
-            <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse" />
-            Disponible para proyectos freelance
-          </div>
-          <div className="inline-flex items-center align-middle gap-3 mb-6">
-          <Image
-                            src="/avatar.png"
-                            alt="Gustavo Sebastian Olivera"
-                            fill
-                            className="rounded-2xl object-cover object-top border-2 border-zinc-700"
-                            sizes="96px"
-                            priority
-          />
-          </div>
-          
-
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-tight">
-            Gustavo
-            <br />
-            <span className="text-emerald-400">Sebastian</span>
-            <br />
-            Olivera
-          </h1>
-
-          <p className="mt-6 text-lg sm:text-xl text-zinc-400 max-w-2xl leading-relaxed">
-            Estudiante de IT & Desarrollador Full Stack.{" "}
-            <span className="text-zinc-200">
-              Construyendo soluciones escalables
-            </span>{" "}
-            desde Colón, Buenos Aires.
-          </p>
-
-          <p className="mt-2 text-sm text-zinc-500">
-            ISFDyT N°124 · .NET / Next.js / Docker · SaaS, Ingeniería y Game Dev
-          </p>
-
-          <div className="mt-10 flex flex-wrap items-center gap-4">
-            <a
-              href="#projects"
-              className="px-6 py-3 text-sm font-semibold bg-emerald-500 hover:bg-emerald-400 text-zinc-950 rounded-xl transition-colors"
-            >
-              Ver proyectos
-            </a>
-            <a
-              href="mailto:gsolivera.dev@gmail.com"
-              className="px-6 py-3 text-sm font-semibold border border-zinc-700 hover:border-zinc-500 text-zinc-300 hover:text-white rounded-xl transition-colors"
-            >
-              Contactarme
-            </a>
-          </div>
-
-          <div className="mt-10 flex items-center gap-2">
-            <a
-              href="https://github.com/IamGustav-Student"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-11 h-11 flex items-center justify-center text-zinc-500 hover:text-emerald-400 transition-colors"
-            >
-              <Github size={22} />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/gustavoolivera/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-11 h-11 flex items-center justify-center text-zinc-500 hover:text-emerald-400 transition-colors"
-            >
-              <Linkedin size={22} />
-            </a>
-            <a
-              href="mailto:iamgustav.olivera@gmail.com"
-              className="w-11 h-11 flex items-center justify-center text-zinc-500 hover:text-emerald-400 transition-colors"
-            >
-              <Mail size={22} />
-            </a>
-          </div>
-        </motion.div>
+  <motion.div
+    initial={{ opacity: 0, y: 30 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.6, ease: "easeOut" }}
+    className="flex flex-col lg:flex-row items-center lg:items-start gap-12"
+  >
+    {/* Columna izquierda: texto */}
+    <div className="flex-1">
+      <div className="inline-flex items-center gap-2 px-3 py-1.5 mb-6 text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 rounded-full">
+        <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse" />
+        Disponible para proyectos freelance
       </div>
+
+      <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-tight">
+        Gustavo
+        <br />
+        <span className="text-emerald-400">Sebastian</span>
+        <br />
+        Olivera
+      </h1>
+
+      <p className="mt-6 text-lg sm:text-xl text-zinc-400 max-w-2xl leading-relaxed">
+        Estudiante de IT & Desarrollador Full Stack.{" "}
+        <span className="text-zinc-200">Construyendo soluciones escalables</span>{" "}
+        desde Colón, Buenos Aires.
+      </p>
+
+      <p className="mt-2 text-sm text-zinc-500">
+        ISFDyT N°124 · .NET / Next.js / Docker · SaaS, Ingeniería y Game Dev
+      </p>
+
+      <div className="mt-10 flex flex-wrap items-center gap-4">
+        <a
+          href="#projects"
+          className="px-6 py-3 text-sm font-semibold bg-emerald-500 hover:bg-emerald-400 text-zinc-950 rounded-xl transition-colors"
+        >
+          Ver proyectos
+        </a>
+        <a
+          href="mailto:gsolivera.dev@gmail.com"
+          className="px-6 py-3 text-sm font-semibold border border-zinc-700 hover:border-zinc-500 text-zinc-300 hover:text-white rounded-xl transition-colors"
+        >
+          Contactarme
+        </a>
+      </div>
+
+      <div className="mt-10 flex items-center gap-2">
+        <a
+          href="https://github.com/IamGustav-Student"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-11 h-11 flex items-center justify-center text-zinc-500 hover:text-emerald-400 transition-colors"
+        >
+          <Github size={22} />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/gustavoolivera/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-11 h-11 flex items-center justify-center text-zinc-500 hover:text-emerald-400 transition-colors"
+        >
+          <Linkedin size={22} />
+        </a>
+        <a
+          href="mailto:iamgustav.olivera@gmail.com"
+          className="w-11 h-11 flex items-center justify-center text-zinc-500 hover:text-emerald-400 transition-colors"
+        >
+          <Mail size={22} />
+        </a>
+      </div>
+    </div>
+
+    {/* Columna derecha: imagen */}
+    <div className="flex-1 relative h-[500px] lg:h-auto">
+      <Image
+        src="/avatar.png"
+        alt="Gustavo Sebastian Olivera"
+        fill
+        className="rounded-2xl object-cover object-top border-2 border-zinc-700"
+        priority
+      />
+    </div>
+  </motion.div>
+</div>
 
       <a
         href="#projects"
