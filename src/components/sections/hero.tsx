@@ -50,7 +50,7 @@ export function Hero() {
               Ver proyectos
             </a>
             <a
-              href="mailto:gsolivera.dev@gmail.com"
+              href="mailto:iamgustav.olivera@gmail.com"
               className="px-6 py-3 text-sm font-semibold border border-zinc-700 hover:border-zinc-500 text-zinc-300 hover:text-white rounded-xl transition-colors"
             >
               Contactarme
