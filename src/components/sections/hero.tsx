@@ -23,6 +23,7 @@ export function Hero() {
             <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse" />
             Disponible para proyectos freelance
           </div>
+          <div className="relative w-24 h-24 sm:w-32 sm:h-32 lg:w-40 lg:h-40">
           <Image
                             src="/avatar.png"
                             alt="Gustavo Sebastian Olivera"
@@ -31,6 +32,8 @@ export function Hero() {
                             sizes="96px"
                             priority
           />
+          </div>
+          
 
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-tight">
             Gustavo
