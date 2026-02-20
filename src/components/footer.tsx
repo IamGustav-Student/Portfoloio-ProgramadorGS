@@ -19,7 +19,7 @@ export function Footer() {
 
           <div className="flex items-center gap-1">
             <a
-              href="https://github.com/programadorgs"
+              href="https://github.com/IamGustav-Student"
               target="_blank"
               rel="noopener noreferrer"
               className="w-11 h-11 flex items-center justify-center text-zinc-500 hover:text-emerald-400 transition-colors"
@@ -28,7 +28,7 @@ export function Footer() {
               <Github size={20} />
             </a>
             <a
-              href="https://linkedin.com/in/gustavo-olivera"
+              href="https://linkedin.com/in/gustavoolivera"
               target="_blank"
               rel="noopener noreferrer"
               className="w-11 h-11 flex items-center justify-center text-zinc-500 hover:text-emerald-400 transition-colors"
@@ -37,7 +37,7 @@ export function Footer() {
               <Linkedin size={20} />
             </a>
             <a
-              href="mailto:gsolivera.dev@gmail.com"
+              href="mailto:iamgustav.olivera@gmail.com"
               className="w-11 h-11 flex items-center justify-center text-zinc-500 hover:text-emerald-400 transition-colors"
               aria-label="Email"
             >
