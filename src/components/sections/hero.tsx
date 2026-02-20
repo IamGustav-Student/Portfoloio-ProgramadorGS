@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
+import Image from "next/image";
+
 
 export function Hero() {
   return (
@@ -21,6 +23,14 @@ export function Hero() {
             <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse" />
             Disponible para proyectos freelance
           </div>
+          <Image
+                            src="/avatar.png"
+                            alt="Gustavo Sebastian Olivera"
+                            fill
+                            className="rounded-2xl object-cover object-top border-2 border-zinc-700"
+                            sizes="96px"
+                            priority
+          />
 
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-tight">
             Gustavo
