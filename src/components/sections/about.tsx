@@ -35,7 +35,7 @@ export function AboutSection() {
         >
           <p className="text-sm font-medium text-emerald-400 mb-2">// Sobre mí</p>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            De la Academia a la Arquitectura
+            De la Academia a la Realidad.
           </h2>
           <p className="mt-2 text-zinc-500 text-sm">Construyendo el software del mañana</p>
         </motion.div>
@@ -67,7 +67,7 @@ export function AboutSection() {
             </div>
             <p className="text-zinc-400 leading-relaxed">
               Soy <span className="text-white font-semibold">Gustavo Sebastian Olivera</span>, estudiante de
-              Computación/IT en el{" "}
+              <span className="text-emerald-400 font-medium">Tecnicatura en Desarrollo de Software</span> en el{" "}
               <span className="text-emerald-400 font-medium">ISFDyT N°124</span> (Colón, Bs. As.) y
               desarrollador Full Stack con una obsesión: la{" "}
               <span className="text-zinc-200">arquitectura limpia y la escalabilidad</span>. Mi enfoque no es solo
@@ -95,7 +95,7 @@ export function AboutSection() {
               crecimiento. Si buscás a alguien que no solo ejecute, sino que proponga y entienda el{" "}
               <span className="text-zinc-400">"por qué"</span> de cada decisión tecnológica,{" "}
               <a
-                href="mailto:gsolivera.dev@gmail.com"
+                href="mailto:iamgustav.olivera@gmail.com"
                 className="text-emerald-400 hover:text-emerald-300 transition-colors underline underline-offset-2"
               >
                 hablemos
@@ -132,7 +132,7 @@ export function AboutSection() {
                 <BookOpen size={16} className="text-blue-400 mt-0.5 shrink-0" />
                 <div>
                   <p className="text-xs font-semibold text-white">ISFDyT N°124</p>
-                  <p className="text-xs text-zinc-500">Tecnicatura en IT</p>
+                  <p className="text-xs text-zinc-500">Tecnicatura en DEsarrollo de Software.</p>
                 </div>
               </div>
               <div className="flex items-start gap-3 p-3 bg-zinc-900 border border-zinc-800 rounded-xl">

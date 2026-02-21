@@ -78,12 +78,12 @@ export function BlogSection() {
           <p className="text-sm text-zinc-500">
             El blog está en construcción. Mientras tanto, podés seguir mi proceso en{" "}
             <a
-              href="https://github.com/programadorgs"
+              href="https://www.twitch.tv/programador_gs"
               target="_blank"
               rel="noopener noreferrer"
               className="text-emerald-400 hover:text-emerald-300 transition-colors"
             >
-              GitHub
+              Twitch
             </a>
             .
           </p>

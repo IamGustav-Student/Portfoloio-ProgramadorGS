@@ -35,7 +35,7 @@ export function Hero() {
             </h1>
 
             <p className="mt-6 text-lg sm:text-xl text-zinc-400 max-w-2xl leading-relaxed">
-              Estudiante de IT & Desarrollador Full Stack.{" "}
+              Estudiante & Desarrollador Full Stack.{" "}
               <span className="text-zinc-200">Construyendo soluciones escalables</span>{" "}
               desde Colón, Buenos Aires.
             </p>
