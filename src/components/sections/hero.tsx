@@ -26,13 +26,13 @@ export function Hero() {
               Disponible para proyectos freelance
             </div>
 
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-tight">
+            <h3 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-tight">
               Gustavo
               <br />
               <span className="text-emerald-400">Sebastian</span>
               <br />
               Olivera
-            </h1>
+            </h3>
 
             <p className="mt-6 text-lg sm:text-xl text-zinc-400 max-w-2xl leading-relaxed">
               Estudiante de IT & Desarrollador Full Stack.{" "}
