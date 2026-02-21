@@ -1,7 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { BookOpen, MapPin, Quote } from "lucide-react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { BookOpen, MapPin, Quote, ChevronDown } from "lucide-react";
 import Image from "next/image";
 
 const strengths = [
@@ -23,7 +24,51 @@ const strengths = [
   },
 ];
 
+function StrengthAccordion({ title, body, index }: { title: string; body: string; index: number }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 12 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.4, delay: index * 0.08 }}
+      className="bg-zinc-900 border border-zinc-800 hover:border-zinc-700 rounded-xl transition-colors overflow-hidden"
+    >
+      <button
+        onClick={() => setOpen(!open)}
+        className="w-full flex items-center justify-between p-4 text-left"
+        aria-expanded={open}
+      >
+        <h3 className="text-sm font-semibold text-white">{title}</h3>
+        <motion.span
+          animate={{ rotate: open ? 180 : 0 }}
+          transition={{ duration: 0.2 }}
+          className="text-zinc-500 shrink-0 ml-3"
+        >
+          <ChevronDown size={15} />
+        </motion.span>
+      </button>
+      <AnimatePresence initial={false}>
+        {open && (
+          <motion.div
+            key="body"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.25, ease: "easeInOut" }}
+            className="overflow-hidden"
+          >
+            <p className="px-4 pb-4 text-sm text-zinc-400 leading-relaxed">{body}</p>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
+  );
+}
+
 export function AboutSection() {
+  const [bioExpanded, setBioExpanded] = useState(false);
+
   return (
     <section id="about" className="py-24 scroll-mt-16 bg-zinc-950/50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -65,43 +110,65 @@ export function AboutSection() {
                 <p className="text-zinc-500 text-xs mt-1">ISFDyT N°124 · Colón, Bs. As.</p>
               </div>
             </div>
+
             <p className="text-zinc-400 leading-relaxed">
-              Soy <span className="text-white font-semibold">Gustavo Sebastian Olivera</span>, estudiante de
+              Soy <span className="text-white font-semibold">Gustavo Sebastian Olivera</span>, estudiante de{" "}
               <span className="text-emerald-400 font-medium">Tecnicatura en Desarrollo de Software</span> en el{" "}
               <span className="text-emerald-400 font-medium">ISFDyT N°124</span> (Colón, Bs. As.) y
               desarrollador Full Stack con una obsesión: la{" "}
-              <span className="text-zinc-200">arquitectura limpia y la escalabilidad</span>. Mi enfoque no es solo
-              "picar código", sino diseñar sistemas que resuelvan problemas de negocio reales.
-            </p>
-            <p className="text-zinc-400 leading-relaxed">
-              Como Co-fundador de <span className="text-blue-400 font-medium">ZENDEV</span> y arquitecto detrás
-              de <span className="text-emerald-400 font-medium">Gymvo</span>, he transformado conceptos complejos
-              en plataformas funcionales. Mi día a día transcurre entre el tipado fuerte de{" "}
-              <span className="text-zinc-200">ASP.NET (C#)</span>, la agilidad de{" "}
-              <span className="text-zinc-200">Node.js</span> y la eficiencia de{" "}
-              <span className="text-zinc-200">Python</span>, siempre bajo el estándar de Clean Architecture.
+              <span className="text-zinc-200">arquitectura limpia y la escalabilidad</span>.
             </p>
 
-            <blockquote className="relative mt-6 p-5 bg-zinc-900 border border-zinc-700 rounded-xl">
-              <Quote size={18} className="text-emerald-400/40 mb-2" />
-              <p className="text-zinc-300 text-sm leading-relaxed italic">
-                "El código prolijo no es un lujo, es una inversión. Mi objetivo es que cada línea que escribo
-                sea una base sólida para el crecimiento del proyecto."
-              </p>
-            </blockquote>
+            <AnimatePresence initial={false}>
+              {bioExpanded && (
+                <motion.div
+                  key="bio-extra"
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                  className="overflow-hidden space-y-4"
+                >
+                  <p className="text-zinc-400 leading-relaxed">
+                    Como Co-fundador de <span className="text-blue-400 font-medium">ZENDEV</span> y arquitecto detrás
+                    de <span className="text-emerald-400 font-medium">Gymvo</span>, he transformado conceptos complejos
+                    en plataformas funcionales. Mi día a día transcurre entre el tipado fuerte de{" "}
+                    <span className="text-zinc-200">ASP.NET (C#)</span>, la agilidad de{" "}
+                    <span className="text-zinc-200">Node.js</span> y la eficiencia de{" "}
+                    <span className="text-zinc-200">Python</span>, siempre bajo el estándar de Clean Architecture.
+                  </p>
+                  <blockquote className="relative p-5 bg-zinc-900 border border-zinc-700 rounded-xl">
+                    <Quote size={18} className="text-emerald-400/40 mb-2" />
+                    <p className="text-zinc-300 text-sm leading-relaxed italic">
+                      "El código prolijo no es un lujo, es una inversión. Mi objetivo es que cada línea que escribo
+                      sea una base sólida para el crecimiento del proyecto."
+                    </p>
+                  </blockquote>
+                  <p className="text-zinc-500 text-sm leading-relaxed">
+                    Actualmente busco sumarme a equipos que valoren la calidad técnica, la proactividad y la visión de
+                    crecimiento. Si buscás a alguien que no solo ejecute, sino que proponga y entienda el{" "}
+                    <span className="text-zinc-400">"por qué"</span> de cada decisión tecnológica,{" "}
+                    <a
+                      href="mailto:iamgustav.olivera@gmail.com"
+                      className="text-emerald-400 hover:text-emerald-300 transition-colors underline underline-offset-2"
+                    >
+                      hablemos
+                    </a>
+                    .
+                  </p>
+                </motion.div>
+              )}
+            </AnimatePresence>
 
-            <p className="text-zinc-500 text-sm leading-relaxed pt-2">
-              Actualmente busco sumarme a equipos que valoren la calidad técnica, la proactividad y la visión de
-              crecimiento. Si buscás a alguien que no solo ejecute, sino que proponga y entienda el{" "}
-              <span className="text-zinc-400">"por qué"</span> de cada decisión tecnológica,{" "}
-              <a
-                href="mailto:iamgustav.olivera@gmail.com"
-                className="text-emerald-400 hover:text-emerald-300 transition-colors underline underline-offset-2"
-              >
-                hablemos
-              </a>
-              .
-            </p>
+            <button
+              onClick={() => setBioExpanded(!bioExpanded)}
+              className="flex items-center gap-1.5 text-xs text-zinc-500 hover:text-emerald-400 transition-colors"
+            >
+              <motion.span animate={{ rotate: bioExpanded ? 180 : 0 }} transition={{ duration: 0.2 }}>
+                <ChevronDown size={13} />
+              </motion.span>
+              {bioExpanded ? "Leer menos" : "Leer más sobre mí"}
+            </button>
           </motion.div>
 
           <motion.div
@@ -109,22 +176,12 @@ export function AboutSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="space-y-4"
+            className="space-y-3"
           >
-            <p className="text-xs font-semibold text-zinc-500 uppercase tracking-wider mb-3">¿Qué aporto a tu equipo?</p>
+            <p className="text-xs font-semibold text-zinc-500 uppercase tracking-wider mb-1">¿Qué aporto a tu equipo?</p>
 
             {strengths.map((s, i) => (
-              <motion.div
-                key={s.title}
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.08 }}
-                className="p-4 bg-zinc-900 border border-zinc-800 hover:border-zinc-700 rounded-xl transition-colors"
-              >
-                <h3 className="text-sm font-semibold text-white mb-1">{s.title}</h3>
-                <p className="text-sm text-zinc-400 leading-relaxed">{s.body}</p>
-              </motion.div>
+              <StrengthAccordion key={s.title} title={s.title} body={s.body} index={i} />
             ))}
 
             <div className="grid grid-cols-2 gap-3 pt-2">
@@ -132,7 +189,7 @@ export function AboutSection() {
                 <BookOpen size={16} className="text-blue-400 mt-0.5 shrink-0" />
                 <div>
                   <p className="text-xs font-semibold text-white">ISFDyT N°124</p>
-                  <p className="text-xs text-zinc-500">Tecnicatura en DEsarrollo de Software.</p>
+                  <p className="text-xs text-zinc-500">Tecnicatura en Desarrollo de Software</p>
                 </div>
               </div>
               <div className="flex items-start gap-3 p-3 bg-zinc-900 border border-zinc-800 rounded-xl">

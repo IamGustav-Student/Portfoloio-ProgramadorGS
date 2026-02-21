@@ -1,8 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { blogPosts } from "@/data/skills";
-import { ArrowRight, Clock, FileText } from "lucide-react";
+import { Clock, FileText, ChevronDown } from "lucide-react";
 
 const categoryColors: Record<string, string> = {
   Architecture: "text-emerald-400 bg-emerald-400/10 border-emerald-400/20",
@@ -16,6 +17,68 @@ const statusLabel = {
   wip: "En progreso",
   draft: "Borrador",
 };
+
+function BlogCard({ post, index }: { post: (typeof blogPosts)[0]; index: number }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <motion.article
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.4, delay: index * 0.08 }}
+      className="group bg-zinc-900 border border-zinc-800 hover:border-zinc-600 rounded-2xl overflow-hidden transition-colors"
+    >
+      <button
+        onClick={() => setOpen(!open)}
+        className="w-full text-left p-6"
+        aria-expanded={open}
+      >
+        <div className="flex items-start justify-between gap-4 mb-3">
+          <span className={`inline-flex items-center px-2 py-0.5 text-xs font-medium border rounded-full ${categoryColors[post.category] ?? "text-zinc-400 bg-zinc-800 border-zinc-700"}`}>
+            {post.category}
+          </span>
+          <div className="flex items-center gap-3 shrink-0">
+            <span className="inline-flex items-center gap-1 text-xs text-zinc-600">
+              <Clock size={11} />
+              {statusLabel[post.status]}
+            </span>
+            <motion.span
+              animate={{ rotate: open ? 180 : 0 }}
+              transition={{ duration: 0.2 }}
+              className="text-zinc-600 group-hover:text-zinc-400 transition-colors"
+            >
+              <ChevronDown size={14} />
+            </motion.span>
+          </div>
+        </div>
+        <h3 className="text-base font-bold text-white group-hover:text-emerald-400 transition-colors leading-snug text-left">
+          {post.title}
+        </h3>
+      </button>
+
+      <AnimatePresence initial={false}>
+        {open && (
+          <motion.div
+            key="excerpt"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.25, ease: "easeInOut" }}
+            className="overflow-hidden"
+          >
+            <div className="px-6 pb-6 pt-0 border-t border-zinc-800 space-y-3">
+              <p className="pt-4 text-sm text-zinc-400 leading-relaxed">{post.excerpt}</p>
+              <div className="flex items-center gap-1.5 text-xs text-zinc-600">
+                <FileText size={12} />
+                Próximamente
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.article>
+  );
+}
 
 export function BlogSection() {
   return (
@@ -38,34 +101,7 @@ export function BlogSection() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           {blogPosts.map((post, i) => (
-            <motion.article
-              key={post.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.08 }}
-              className="group relative bg-zinc-900 border border-zinc-800 hover:border-zinc-600 rounded-2xl p-6 transition-colors cursor-default"
-            >
-              <div className="flex items-start justify-between gap-4 mb-3">
-                <span className={`inline-flex items-center px-2 py-0.5 text-xs font-medium border rounded-full ${categoryColors[post.category] ?? "text-zinc-400 bg-zinc-800 border-zinc-700"}`}>
-                  {post.category}
-                </span>
-                <span className="inline-flex items-center gap-1 text-xs text-zinc-600">
-                  <Clock size={11} />
-                  {statusLabel[post.status]}
-                </span>
-              </div>
-
-              <h3 className="text-base font-bold text-white group-hover:text-emerald-400 transition-colors leading-snug">
-                {post.title}
-              </h3>
-              <p className="mt-2 text-sm text-zinc-400 leading-relaxed">{post.excerpt}</p>
-
-              <div className="mt-4 flex items-center gap-1.5 text-xs text-zinc-600">
-                <FileText size={12} />
-                Próximamente
-              </div>
-            </motion.article>
+            <BlogCard key={post.id} post={post} index={i} />
           ))}
         </div>
 
