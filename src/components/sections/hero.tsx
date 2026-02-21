@@ -26,7 +26,7 @@ export function Hero() {
               Disponible para proyectos freelance
             </div>
 
-            <h5 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-tight">
+            <h5 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight">
               Gustavo
               <br />
               <span className="text-emerald-400">Sebastian</span>
